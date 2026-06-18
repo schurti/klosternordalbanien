@@ -1,6 +1,8 @@
 import { clsx } from 'clsx/lite'
 import type { ComponentProps } from 'react'
 
+import { withBasePath } from '@/lib/with-base-path'
+
 type Variant = 'plum' | 'donate' | 'ghost' | 'light'
 
 const base =
@@ -20,11 +22,12 @@ export function buttonClasses(variant: Variant = 'plum', className?: string) {
 export function ButtonLink({
   variant = 'plum',
   className,
+  href,
   children,
   ...props
 }: { variant?: Variant } & ComponentProps<'a'>) {
   return (
-    <a className={buttonClasses(variant, className)} {...props}>
+    <a className={buttonClasses(variant, className)} href={href ? withBasePath(href) : href} {...props}>
       {children}
     </a>
   )

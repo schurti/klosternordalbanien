@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { BrandMark } from '@/components/elements/brand-mark'
 import { ButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
+import { withBasePath } from '@/lib/with-base-path'
 
 const navLinks = [
   { href: '/#ueber', label: 'Über uns' },
@@ -22,7 +23,7 @@ export function SiteHeader() {
       <Container className="relative flex items-center justify-between gap-4 py-[0.7rem]">
         <a
           className="flex items-center gap-2.5 text-ink no-underline"
-          href="/#top"
+          href={withBasePath('/#top')}
           aria-label="Förderverein Kloster Nordalbanien – Startseite"
         >
           <span className="shrink-0">
@@ -62,7 +63,7 @@ export function SiteHeader() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={withBasePath(link.href)}
               className="border-b border-line py-[0.7rem] text-[0.98rem] font-medium text-ink no-underline opacity-90 hover:text-plum hover:opacity-100 md:border-0 md:py-0 md:opacity-80"
             >
               {link.label}
