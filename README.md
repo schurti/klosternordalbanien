@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Förderverein Kloster Nordalbanien
 
-## Getting Started
+Website of the *Förderverein Kloster Nordalbanien* – a Swiss non-profit association (in formation, seat in the Canton of Zug) that collects donations in Switzerland and channels them, earmarked and verified, to people in Northern Albania through the sisters of the convent "Mutter der Barmherzigkeit" in Shkodra.
 
-First, run the development server:
+The site is a single-page marketing homepage plus legal pages (Impressum, Datenschutz), built as a statically exported [Next.js](https://nextjs.org) app and styled with [Tailwind CSS](https://tailwindcss.com) v4.
+
+## Tech stack
+
+- **Next.js 16** (App Router) with `output: "export"` – produces a fully static site
+- **React 19**
+- **Tailwind CSS v4** – design tokens live in the `@theme` block of [`app/globals.css`](app/globals.css)
+- **TypeScript**
+
+## Getting started
+
+Install dependencies and start the dev server:
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command      | Description                                |
+| ------------ | ------------------------------------------ |
+| `yarn dev`   | Start the development server               |
+| `yarn build` | Build and export the static site to `out/` |
+| `yarn start` | Serve the production build                 |
+| `yarn lint`  | Run ESLint                                 |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx            Root layout, fonts (Fraunces + Source Sans 3), metadata
+  globals.css           Tailwind import + @theme design tokens + animations
+  page.tsx              Homepage, composed from section components
+  impressum/page.tsx    Impressum (legal notice)
+  datenschutz/page.tsx  Datenschutzerklärung (privacy policy)
+src/
+  components/
+    elements/           Reusable building blocks (button, container, eyebrow, …)
+    sections/           Page sections (hero, about, help, support, footer, …)
+  lib/
+    with-base-path.ts   Prefixes asset/links with BASE_PATH for sub-path hosting
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment / base path
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`yarn build` emits a static site into `out/`, deployable to any static host
+(e.g. GitHub Pages). When hosting under a sub-path, set the `BASE_PATH`
+environment variable at build time; [`next.config.ts`](next.config.ts) wires it
+into `basePath`/`assetPrefix`, and [`src/lib/with-base-path.ts`](src/lib/with-base-path.ts)
+prefixes internal links accordingly. Hosting at the domain root
+(`klosternordalbanien.ch`) needs no `BASE_PATH`.
 
-## Deploy on Vercel
+## Before going live
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A few values in the current content are placeholders and must be confirmed:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Donation IBAN** – [`src/components/sections/support.tsx`](src/components/sections/support.tsx) still shows the `CH00…` placeholder.
+- **Vorstand / association details** – names, UID and registry entry in [`app/impressum/page.tsx`](app/impressum/page.tsx) are filled in after the founding assembly (18 June 2026).
+- Review the **Impressum** and **Datenschutzerklärung** legal text for accuracy.
+
+Contact e-mail: `info@klosternordalbanien.ch`
