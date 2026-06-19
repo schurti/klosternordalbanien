@@ -1,7 +1,6 @@
 import { clsx } from 'clsx/lite'
+import Link from 'next/link'
 import type { ComponentProps } from 'react'
-
-import { withBasePath } from '@/lib/with-base-path'
 
 type Variant = 'plum' | 'donate' | 'ghost' | 'light'
 
@@ -19,17 +18,20 @@ export function buttonClasses(variant: Variant = 'plum', className?: string) {
   return clsx(base, variants[variant], className)
 }
 
+// Internal navigation uses next/link so Next prepends basePath automatically
+// (the same basePath that prefixes assets), keeping links correct under a
+// GitHub Pages project sub-path.
 export function ButtonLink({
   variant = 'plum',
   className,
-  href,
+  href = '#',
   children,
   ...props
-}: { variant?: Variant } & ComponentProps<'a'>) {
+}: { variant?: Variant } & ComponentProps<typeof Link>) {
   return (
-    <a className={buttonClasses(variant, className)} href={href ? withBasePath(href) : href} {...props}>
+    <Link className={buttonClasses(variant, className)} href={href} {...props}>
       {children}
-    </a>
+    </Link>
   )
 }
 
