@@ -8,8 +8,8 @@ const footerLinks = [
   { href: '/#transparenz', label: 'Transparenz' },
   { href: '/#spenden', label: 'Spenden' },
   { href: '/#kontakt', label: 'Kontakt' },
-  { href: '/impressum', label: 'Impressum' },
-  { href: '/datenschutz', label: 'Datenschutz' },
+  { href: '/impressum/', label: 'Impressum' },
+  { href: '/datenschutz/', label: 'Datenschutz' },
 ]
 
 export function SiteFooter() {
