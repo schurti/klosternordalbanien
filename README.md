@@ -48,14 +48,24 @@ src/
     with-base-path.ts   Prefixes asset/links with BASE_PATH for sub-path hosting
 ```
 
-## Deployment / base path
+## Deployment
 
-`yarn build` emits a static site into `out/`, deployable to any static host
-(e.g. GitHub Pages). When hosting under a sub-path, set the `BASE_PATH`
+The site is deployed to GitHub Pages via [`.github/workflows/nextjs.yml`](.github/workflows/nextjs.yml)
+and served at the custom domain root **klosternordalbanien.ch**. `yarn build`
+emits a static site into `out/`; [`public/CNAME`](public/CNAME) pins the custom
+domain. Because it is served at the domain root there is no `BASE_PATH`, so
+internal links are plain (`/#hilfe`, `/impressum`) and in-page anchors scroll
+natively — the same model as the sibling schurter-movea site.
+
+To configure the custom domain (one-time): in the repo **Settings → Pages**
+set the custom domain to `klosternordalbanien.ch`, and at the DNS provider point
+the apex record at GitHub Pages (the four `A` records, plus a `CNAME` on `www`
+to `schurti.github.io`).
+
+If the site ever needs to be hosted under a sub-path instead, set the `BASE_PATH`
 environment variable at build time; [`next.config.ts`](next.config.ts) wires it
-into `basePath`/`assetPrefix`, and [`src/lib/with-base-path.ts`](src/lib/with-base-path.ts)
-prefixes internal links accordingly. Hosting at the domain root
-(`klosternordalbanien.ch`) needs no `BASE_PATH`.
+into `basePath`/`assetPrefix` and [`src/lib/with-base-path.ts`](src/lib/with-base-path.ts)
+prefixes internal links accordingly.
 
 ## Before going live
 

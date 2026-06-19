@@ -74,11 +74,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        # Served from a GitHub Pages project sub-path (schurti.github.io/klosternordalbanien/).
-        # When the custom domain klosternordalbanien.ch is configured (served at root),
-        # remove this env block (or set BASE_PATH to an empty string) and add a CNAME.
-        env:
-          BASE_PATH: /klosternordalbanien
+        # Served at the custom domain root (klosternordalbanien.ch), so no basePath.
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
