@@ -74,7 +74,7 @@
 }
 
 .route-parcel {
-  offset-path: path('M86 96 C 168 150, 150 300, 300 348');
+  offset-path: path('M86 96 C 122 226, 320 288, 300 348');
   offset-rotate: 0deg;
   animation: route-travel 6.5s cubic-bezier(0.6, 0.05, 0.4, 0.95) infinite 0.8s;
 }

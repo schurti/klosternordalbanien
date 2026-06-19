@@ -6,7 +6,7 @@ import { Reveal } from '@/components/elements/reveal'
 export function Hero() {
   return (
     <section className="bg-[linear-gradient(180deg,#fff_0%,var(--color-haze)_60%)]">
-      <Container className="grid items-center gap-8 py-14 sm:py-20 lg:gap-16 lg:py-24 md:grid-cols-[1.15fr_0.85fr]">
+      <Container className="grid items-center gap-8 py-14 sm:py-20 lg:gap-12 lg:py-24 md:grid-cols-[1fr_1fr]">
         <div>
           <Eyebrow>Gemeinnütziger Verein · Schweiz</Eyebrow>
           <h1 className="text-[clamp(2.3rem,5.2vw,3.7rem)] tracking-[-0.02em]">
@@ -33,17 +33,17 @@ export function Hero() {
 
         <Reveal
           as="figure"
-          className="order-first m-0 mx-auto max-w-[420px] rounded-[22px] border border-line bg-white p-[18px] shadow-[0_24px_60px_-40px_rgba(55,34,59,0.45)] md:order-none"
+          className="order-first m-0 mx-auto hidden w-full max-w-[520px] rounded-[22px] border border-line bg-white p-[8px] shadow-[0_24px_60px_-40px_rgba(55,34,59,0.45)] md:order-none md:block"
         >
           <svg
-            viewBox="0 0 360 400"
+            viewBox="47 50 307 352"
             role="img"
             aria-label="Der Förderverein als Brücke zwischen der Schweiz und Shkodra in Nordalbanien"
           >
             <path
               className="route-draw"
               pathLength={1}
-              d="M86 96 C 168 150, 150 300, 300 348"
+              d="M86 96 C 122 226, 320 288, 300 348"
               stroke="#D49A4E"
               strokeWidth="2.4"
               strokeLinecap="round"
@@ -53,18 +53,18 @@ export function Hero() {
             />
             <circle cx="86" cy="96" r="9" fill="#fff" stroke="#5C3C5E" strokeWidth="2.4" />
             <circle cx="86" cy="96" r="3.4" fill="#5C3C5E" />
-            <text x="104" y="92" fontFamily="Source Sans 3, sans-serif" fontSize="15" fontWeight="600" fill="#37223B">
+            <text x="110" y="91" fontFamily="Source Sans 3, sans-serif" fontSize="15" fontWeight="600" fill="#37223B">
               Schweiz
             </text>
-            <text x="104" y="110" fontFamily="Source Sans 3, sans-serif" fontSize="12" fill="#6E6173">
+            <text x="110" y="109" fontFamily="Source Sans 3, sans-serif" fontSize="12" fill="#6E6173">
               Spenden &amp; Sachhilfe gesammelt
             </text>
             <circle className="route-ripple" cx="300" cy="348" r="16" fill="#D49A4E" opacity="0.45" />
             <circle cx="300" cy="348" r="11" fill="#fff" stroke="#D49A4E" strokeWidth="2.6" />
             <circle cx="300" cy="348" r="4" fill="#D49A4E" />
             <text
-              x="288"
-              y="324"
+              x="266"
+              y="343"
               textAnchor="end"
               fontFamily="Source Sans 3, sans-serif"
               fontSize="15"
@@ -73,12 +73,12 @@ export function Hero() {
             >
               Shkodra
             </text>
-            <text x="288" y="342" textAnchor="end" fontFamily="Source Sans 3, sans-serif" fontSize="12" fill="#6E6173">
+            <text x="266" y="361" textAnchor="end" fontFamily="Source Sans 3, sans-serif" fontSize="12" fill="#6E6173">
               Nordalbanien · Hilfe kommt an
             </text>
             <rect className="route-parcel" x="-5" y="-5" width="10" height="10" rx="2" fill="#5C3C5E" />
           </svg>
-          <figcaption className="px-4 pt-1.5 pb-1 text-center text-[0.85rem] text-muted">
+          <figcaption className="px-4 pt-0 pb-3 text-center text-[0.85rem] text-muted">
             Wir sind die <b className="font-semibold text-plum">Brücke</b> dazwischen.
           </figcaption>
         </Reveal>
