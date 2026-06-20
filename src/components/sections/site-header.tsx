@@ -41,7 +41,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="flex h-10 w-11 items-center justify-center rounded-[10px] border-[1.5px] border-line md:hidden"
+          className="flex h-10 w-11 items-center justify-center rounded-[10px] border-[1.5px] border-line lg:hidden"
           aria-label={open ? 'Menü schliessen' : 'Menü öffnen'}
           aria-expanded={open}
           aria-controls="navlinks"
@@ -55,7 +55,7 @@ export function SiteHeader() {
           aria-label="Hauptnavigation"
           className={`${
             open ? 'flex' : 'hidden'
-          } absolute inset-x-0 top-full flex-col items-stretch gap-0 border-b border-line bg-haze px-5 pt-2 pb-[1.1rem] sm:px-8 lg:px-10 md:static md:flex md:flex-row md:items-center md:gap-7 md:border-0 md:bg-transparent md:p-0`}
+          } absolute inset-x-0 top-full flex-col items-stretch gap-0 border-b border-line bg-haze px-5 pt-2 pb-[1.1rem] sm:px-8 lg:static lg:flex lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:bg-transparent lg:px-10 lg:py-0`}
           onClick={(e) => {
             if ((e.target as HTMLElement).tagName === 'A') setOpen(false)
           }}
@@ -64,12 +64,12 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={withBasePath(link.href)}
-              className="border-b border-line py-[0.7rem] text-[0.98rem] font-medium text-ink no-underline opacity-90 hover:text-plum hover:opacity-100 md:border-0 md:py-0 md:opacity-80"
+              className="border-b border-line py-[0.7rem] text-[0.98rem] font-medium whitespace-nowrap text-ink no-underline opacity-90 hover:text-plum hover:opacity-100 lg:border-0 lg:py-0 lg:opacity-80"
             >
               {link.label}
             </a>
           ))}
-          <ButtonLink variant="donate" href="/#spenden" className="mt-[0.7rem] md:mt-0 md:ml-1.5">
+          <ButtonLink variant="donate" href="/#spenden" className="mt-[0.7rem] whitespace-nowrap lg:mt-0 lg:ml-1.5">
             Jetzt spenden
           </ButtonLink>
         </nav>
