@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/#ueber', label: 'Über uns' },
   { href: '/#hilfe', label: 'Unsere Hilfe' },
   { href: '/#transparenz', label: 'Transparenz' },
+  { href: '/#vorstand', label: 'Vorstand' },
   { href: '/#spenden', label: 'Spenden' },
   { href: '/#kontakt', label: 'Kontakt' },
 ]

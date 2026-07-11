@@ -1,4 +1,5 @@
 import { About } from '@/components/sections/about'
+import { Board } from '@/components/sections/board'
 import { Contact } from '@/components/sections/contact'
 import { Help } from '@/components/sections/help'
 import { Hero } from '@/components/sections/hero'
@@ -26,6 +27,7 @@ export default function Home() {
         <Help />
         <NeedBand />
         <Transparency />
+        <Board />
         <Support />
         <Contact />
       </main>
